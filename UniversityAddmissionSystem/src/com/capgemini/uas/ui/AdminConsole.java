@@ -36,14 +36,15 @@ public class AdminConsole {
 			
 			do											//do-while loop
 			{				
-				System.out.println("1. View particular program scheduled Details");
+				System.out.println("1. View All program scheduled Details");
 				System.out.println("2. View list of applicants of particular program Confirmed after interview");
 				System.out.println("3. Add program Offered");
 				System.out.println("4. Delete Program Offered");
 				System.out.println("5. Add Programs Scheduled");
 				System.out.println("6. Delete Programs Scheduled");
 				System.out.println("7. View list of applicants of particular program scheduled");
-				System.out.println("8. Exit");
+				System.out.println("8.Generate Confirmed Students List");
+				System.out.println("9. Exit");
 				System.out.println("******************************");
 				System.out.print("\nPlease Enter a Choice : ");
 				
@@ -61,24 +62,13 @@ public class AdminConsole {
 				case 1:
 					boolean flag2=false;
 					
-					do{
-						System.out.println("Enter Program Scheduled Id");
-					scheduledProgramId = sc.next();
-					List<String> schlist=service.getAllScheduleId();		
-					if(schlist.contains(scheduledProgramId))
-					{  flag2=true;
-					System.out.println("The List is As Shown");
+						System.out.println("The List is As Shown");
 						List<ProgramScheduledBean> list1 = service.getAllDetails();
 										 for (ProgramScheduledBean sch : list1) {
 							System.out.println(sch);
 						}										 
-					}
-					else
-					{
-						flag2=false;
-						System.out.println("You Entered Wrong Id");
-					}
-					}while(flag2==false);
+					
+					
 					break;
 					
 				case 2:{
@@ -209,14 +199,14 @@ public class AdminConsole {
 							if(oFPNameList.contains(schProgName)){							
 								pScheduled.setProgramName(schProgName);
 								flag=false;
-						
+						String location=null;
 								do
 								{
 									System.out.println("Enter the New Location");
-									String location=sc.next();
+									location=sc.next();
 									flag=service.validateLocation(location);
 								}while(flag==false);
-								
+								pScheduled.setLocation(location);
 								System.out.println("Enter the Start Date");
 								String date=sc.next();
 								DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -242,7 +232,7 @@ public class AdminConsole {
 								System.out.println("Entred Program Not Found");
 							}
 						}
-					}while(flag);
+					}while(flag==false);
 					break;
 					
 				case 6:
@@ -309,8 +299,21 @@ public class AdminConsole {
 					}while(flag);
 					break;
 					}
+				case 8:
+					List<ApplicationBean> confirmList=service.getAllConfirmedApplicants();
+					if(service.generateParticipants(confirmList))
+					{
+						System.out.println("Participant Added");
+					}
+					else
+					{
+						System.out.println("Failed to add Participants");
+					}
+						
+										
+					break;
 					default:
-						if(choice!=8) {
+						if(choice!=9) {
 							if(choice<1 || choice>8) {
 								System.out.println("No such choice ");
 							}
@@ -318,11 +321,11 @@ public class AdminConsole {
 						String decision = sc.next();
 						if(!("1".equals(decision))) {
 							System.out.println("Thanks For Visiting..");
-							choice=8;
+							choice=9;
 						}
 						}else
 							System.out.println("Thanks For Visiting..");
 				}
-				}while(choice!=8);
+				}while(choice!=9);
 	}
 }

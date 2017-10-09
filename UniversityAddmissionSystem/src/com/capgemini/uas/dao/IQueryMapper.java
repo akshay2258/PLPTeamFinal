@@ -18,6 +18,7 @@ public interface IQueryMapper {
 	public static final String LIST_APPLICANTS_APPLIED="SELECT * FROM applicants WHERE Scheduled_program_id=?  AND status='applied'";
 	public static final String LIST_APPLICANTS_ACCEPTED1="SELECT * FROM applicants WHERE Scheduled_program_id=? AND status='accepted'";
 	public static final String LIST_APPLICANTS_BYSTATUS="SELECT * FROM applicants WHERE Scheduled_program_id=? AND status=?";
+	public static final String LIST_ALL_APPLICANTS_CONFIRMED="SELECT * FROM applicants WHERE status='confirmed'";
 
 	// for program_offered table
 	public static final String ADD_PROGRAM="INSERT INTO program_offered values(?,?,?,?,?)";
@@ -42,7 +43,7 @@ public interface IQueryMapper {
 	public static final String GET_SCHEDULED_IDS = "SELECT Scheduled_program_id FROM program_Scheduled";
 	public static final String LIST_PROGRAMNAME="SELECT program_name FROM program_Scheduled";
 	// for participant table
-	public static final String INSERT_PARTICIPANT="INSERT participants VALUES(?,?,?,?,?,?)";
+	public static final String INSERT_PARTICIPANT="INSERT INTO participants VALUES(roll_no_seq.NEXTVAL,?,?,?)";
 	
 	// sequences
 	public static final String GEN_APPID = "SELECT application_id_seq.nextval FROM DUAL";

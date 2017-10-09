@@ -55,7 +55,7 @@ public class ApplicantConsole {
 			fullName=sc.nextLine();
 			flag = ApplicantServiceImpl.validateFullName(fullName);
 			if(flag==false)
-				System.out.println("Name should be entered less than 20 character and first letter is capital");	
+				System.err.println("Name should be entered less than 20 character and first letter is capital");	
 		}while(flag==false);
 		do
 		{
@@ -78,7 +78,7 @@ public class ApplicantConsole {
 			highestQualification = sc.nextLine();
 			flag2=ApplicantServiceImpl.validateHighestQualification(highestQualification);
 			if(flag2==false)
-				System.out.println("Length should be less than 10");
+				System.err.println("Length should be less than 10");
 		}while(flag2==false);
 		////////////////////////////////////////////////////////////
 			System.out.print("Enter your marks ");
@@ -88,7 +88,7 @@ public class ApplicantConsole {
 					marksObtained = sc.nextInt();
 					flag3=true;
 				} else {
-					System.out.print("Please enter a Marks in number ");
+					System.err.print("Please enter a Marks in number ");
 					sc.next();
 					flag3=false;
 				}
@@ -101,14 +101,14 @@ public class ApplicantConsole {
 				goals = sc.nextLine();
 				flag4=ApplicantServiceImpl.validateGoal(goals);
 				if(flag4==false)
-					System.out.print("Define Goal in Less Than 20 Characters ");
+					System.err.print("Define Goal in Less Than 20 Characters ");
 			} while (flag4==false);
 		
 			
 			System.out.print("Enter your Email Id ");
 			String emailId = sc.next();
 			while(!ApplicantServiceImpl.validateEmail(emailId)){
-				System.out.print("Enter your Correct Email Id ");
+				System.err.println("Enter your Correct Email Id ");
 				emailId = sc.next();
 			}
 			
@@ -116,7 +116,7 @@ public class ApplicantConsole {
 			programScheduled = appService.showProgramScheduled();
 			
 			if(programScheduled.isEmpty()){
-				System.out.println("No Program Available");
+				System.err.println("No Program Available");
 				continue;
 			}
 		    for (ProgramScheduledBean pBean : programScheduled) {
@@ -133,7 +133,7 @@ public class ApplicantConsole {
 			//System.out.println("adfsdf"+scheduledProgramId);
 			flag = MacServiceImpl.validateScheduledId(scheduledProgramId);
 			if(!flag){
-				System.out.println("Scheduled ID should be number and less than 5 digit");
+				System.err.println("Scheduled ID should be number and less than 5 digit");
 				flag=true;
 			}else{
 				List<String> cList = macService.getscheduleId();
@@ -191,7 +191,7 @@ public class ApplicantConsole {
 					}
 				} catch (Exception e) {
 					flag4=false;
-					System.out.println("Only Interger allowed and length should be less than 10");
+					System.err.println("Only Interger allowed and length should be less than 10");
 					String dummy = sc.nextLine();
 				}
 			} while (flag4==false);

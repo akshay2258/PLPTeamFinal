@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.capgemini.uas.dto.ApplicationBean;
@@ -440,5 +441,93 @@ return programId;
 			}
 		}
 		return applicantDetails;
+	}
+
+
+	@Override
+	public boolean generateParticipants(List<ApplicationBean> confApplicants) throws UniversityException {
+		System.out.println(confApplicants);
+		ConnectionUtil util = new ConnectionUtil();
+		connect = util.getConnection();
+		PreparedStatement stmt = null;
+		int recsAffected=0;
+		try{
+			for (Iterator iterator = confApplicants.iterator(); iterator
+					.hasNext();) {
+				stmt = connect.prepareStatement(IQueryMapper.INSERT_PARTICIPANT);
+				ApplicationBean applicationBean = (ApplicationBean) iterator
+						.next();
+				stmt.setInt(2,applicationBean.getApplicationId());
+				stmt.setString(1,applicationBean.getEmailId());
+				stmt.setString(3,applicationBean.getScheduledProgramId());			
+				recsAffected=stmt.executeUpdate();
+			}
+			}catch(SQLException e){
+				e.printStackTrace();
+				throw new UniversityException("Problem in writing data in generateParticipants",e);
+			}finally {
+					try {
+						if (connect != null) {
+							stmt.close();
+							connect.close();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+						throw new UniversityException(
+						"Could not close the connection in generateParticipants");
+					}
+			}
+		if(recsAffected==1)
+		{
+			return true;
+	}
+		else
+		return false;	
+	}
+
+
+	@Override
+	public List<ApplicationBean> getAllConfirmedApplicants()
+			throws UniversityException {
+		ConnectionUtil util = new ConnectionUtil();
+		connect = util.getConnection();
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		List<ApplicationBean> applicantDetails = new ArrayList<ApplicationBean>();
+		try{
+			stmt = connect.prepareStatement(IQueryMapper.LIST_ALL_APPLICANTS_CONFIRMED);
+			rs = stmt.executeQuery();
+			while(rs.next()){
+				int applicationId = rs.getInt(1);
+				String fullName = rs.getString(2);
+				LocalDate dateOfBirth = rs.getDate(3).toLocalDate();
+				String highestQualification = rs.getString(4);
+				int marksObtained = rs.getInt(5);
+				String goals = rs.getString(6);
+				String emailId = rs.getString(7);
+				String pScheduledId = rs.getString(8);
+				String status = rs.getString(9);
+				LocalDate dateOfInterview = rs.getDate(10).toLocalDate();
+				ApplicationBean aB = new ApplicationBean(applicationId, fullName, dateOfBirth, highestQualification, marksObtained, goals, emailId, pScheduledId, status, dateOfInterview);
+				applicantDetails.add(aB);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+			throw new UniversityException("Problem in writing data in getApplicantsByStatusByScheduledProgramId",e);
+		} finally {
+			try {
+				if (connect != null) {
+					stmt.close();
+					rs.close();
+					connect.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new UniversityException(
+						"Could not close the connection in getApplicantsByStatusByScheduledProgramId",e);
+			}
+		}
+		return applicantDetails;
+		
 	}
 }

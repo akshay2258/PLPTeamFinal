@@ -56,15 +56,15 @@ public class ApplicantServiceImpl implements IApplicantService {
 				DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 				dob = LocalDate.parse(dateOfBirth,format);
 				if(!isAgeEligilble(dob))
-					System.out.println("Age should be 17 to 25 years");
+					System.err.println("Age should be 17 to 25 years");
 				return isAgeEligilble(dob);
 			} catch (Exception e) {
-				System.out.println("Date of Birth should be entered in proper format(e.g. 02-Feb-1995)");
+				System.err.println("Date of Birth should be entered in proper format(e.g. 02-Feb-1995)");
 				return false;
 			}
 			
 		}else{
-			System.out.println("Date of Birth should be entered in proper format(e.g. 02-Feb-1995)");
+			System.err.println("Date of Birth should be entered in proper format(e.g. 02-Feb-1995)");
 			return false;
 		}
 	}

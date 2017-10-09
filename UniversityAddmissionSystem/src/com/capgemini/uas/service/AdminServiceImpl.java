@@ -82,4 +82,15 @@ public class AdminServiceImpl implements IAdminService {
 		Matcher match=pt.matcher(location);
 		return match.matches();
 	}
+	@Override
+	public boolean generateParticipants(List<ApplicationBean> confApplicants)
+			throws UniversityException {
+		return dao.generateParticipants(confApplicants);
+	}
+	@Override
+	public List<ApplicationBean> getAllConfirmedApplicants()
+			throws UniversityException {
+		// TODO Auto-generated method stub
+		return dao.getAllConfirmedApplicants();
+	}
 }
