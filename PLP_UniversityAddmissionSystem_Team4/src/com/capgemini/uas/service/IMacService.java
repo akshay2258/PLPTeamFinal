@@ -3,8 +3,8 @@ package com.capgemini.uas.service;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.capgemini.uas.entities.ApplicationBean;
-import com.capgemini.uas.entities.UsersBean;
+import com.capgemini.uas.dto.ApplicationBean;
+import com.capgemini.uas.dto.UsersBean;
 import com.capgemini.uas.exception.UniversityException;
 
 public interface IMacService {

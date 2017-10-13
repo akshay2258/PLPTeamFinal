@@ -1,18 +1,22 @@
 package com.capgemini.uas.service;
 
+import javax.annotation.Resource;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.capgemini.uas.dao.IUsersDao;
 import com.capgemini.uas.dao.UsersDaoImpl;
-import com.capgemini.uas.entities.UsersBean;
+import com.capgemini.uas.dto.UsersBean;
 import com.capgemini.uas.exception.UniversityException;
 
+@Service
+@Transactional
 public class UsersServiceImpl implements IUsersService {
 	
+	@Resource
 	private IUsersDao uDao;
 	
-	public UsersServiceImpl() {
-		uDao = new UsersDaoImpl();
-	}
-
 	@Override
 	public void checkUser(UsersBean userBeanMain) throws UniversityException {
 		UsersBean userBeanDao = uDao.getUserOnId(userBeanMain.getLoginId());

@@ -2,8 +2,8 @@ package com.capgemini.uas.service;
 
 import java.util.List;
 
-import com.capgemini.uas.entities.ApplicationBean;
-import com.capgemini.uas.entities.ProgramScheduledBean;
+import com.capgemini.uas.dto.ApplicationBean;
+import com.capgemini.uas.dto.ProgramScheduledBean;
 import com.capgemini.uas.exception.UniversityException;
 
 public interface IApplicantService {

@@ -6,23 +6,29 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.annotation.Resource;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.capgemini.uas.dao.AdminDaoImpl;
 import com.capgemini.uas.dao.IAdminDao;
-import com.capgemini.uas.entities.ApplicationBean;
-import com.capgemini.uas.entities.ProgramOfferedBean;
-import com.capgemini.uas.entities.ProgramScheduledBean;
+import com.capgemini.uas.dto.ApplicationBean;
+import com.capgemini.uas.dto.ProgramOfferedBean;
+import com.capgemini.uas.dto.ProgramScheduledBean;
 import com.capgemini.uas.exception.UniversityException;
 
+@Service
+@Transactional
 public class AdminServiceImpl implements IAdminService {
+	
+	@Resource
 	private IAdminDao dao;
-	public AdminServiceImpl()
-	{
-		dao=new AdminDaoImpl();
-	}
+	
 	@Override
-	public boolean addProgramOffered(ProgramOfferedBean pOffered)
+	public void addProgramOffered(ProgramOfferedBean pOffered)
 			throws UniversityException {
-		return dao.addProgramOffered(pOffered);
+		dao.addProgramOffered(pOffered);
 	}
 
 	@Override

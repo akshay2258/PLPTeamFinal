@@ -5,13 +5,22 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.capgemini.uas.dao.ApplicantDaoImpl;
 import com.capgemini.uas.dao.IApplicantDao;
-import com.capgemini.uas.entities.ApplicationBean;
-import com.capgemini.uas.entities.ProgramScheduledBean;
+import com.capgemini.uas.dto.ApplicationBean;
+import com.capgemini.uas.dto.ProgramScheduledBean;
 import com.capgemini.uas.exception.UniversityException;
 
+@Service
+@Transactional
 public class ApplicantServiceImpl implements IApplicantService {
+	
+	@Resource
 	private IApplicantDao appDao;
 	
 	private static String patName = "[A-Z][A-Za-z ]{2,19}";
@@ -20,12 +29,6 @@ public class ApplicantServiceImpl implements IApplicantService {
 	private static String patGoal = "[0-9A-Za-z]{1,20}";
 	private static String patEmail = "[a-zA-Z0-9]{4,15}[@][a-zA-Z]{1,10}[.](com|net|gov|in|org)";
 	
-	
-	
-	
-	public ApplicantServiceImpl() throws UniversityException {
-		appDao = new ApplicantDaoImpl();
-	}
 	
 	public static boolean validateFullName(String fullName){
 		return fullName.matches(patName);

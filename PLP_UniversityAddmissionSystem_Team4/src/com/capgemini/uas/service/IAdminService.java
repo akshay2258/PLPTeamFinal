@@ -2,13 +2,13 @@ package com.capgemini.uas.service;
 
 import java.util.List;
 
-import com.capgemini.uas.entities.ApplicationBean;
-import com.capgemini.uas.entities.ProgramOfferedBean;
-import com.capgemini.uas.entities.ProgramScheduledBean;
+import com.capgemini.uas.dto.ApplicationBean;
+import com.capgemini.uas.dto.ProgramOfferedBean;
+import com.capgemini.uas.dto.ProgramScheduledBean;
 import com.capgemini.uas.exception.UniversityException;
 
 public interface IAdminService {
-	public boolean addProgramOffered(ProgramOfferedBean pOffered) throws UniversityException;
+	public void addProgramOffered(ProgramOfferedBean pOffered) throws UniversityException;
 	public boolean deleteProgramOffered(String programName) throws UniversityException;
 	public int addProgramScheduled(ProgramScheduledBean pScheduled) throws UniversityException;
 	public boolean deleteProgramScheduled(String programId) throws UniversityException;
