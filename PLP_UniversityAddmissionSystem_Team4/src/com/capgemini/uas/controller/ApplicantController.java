@@ -3,6 +3,7 @@ package com.capgemini.uas.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -39,42 +40,38 @@ public class ApplicantController {
 			
 		}
 		
-		@RequestMapping("/getRegisterationPage.do")
-		public ModelAndView getRegisterationPage(){
+		@RequestMapping("/getApplicantRegisterationPage.do")
+		public ModelAndView getRegisterationPage(@RequestParam("schId") String scheduledProgramId){
 			ModelAndView mAndV = new ModelAndView();
-			List<ProgramScheduledBean> scheduleList = null;
-			try {
-				scheduleList = service.showProgramScheduled();
-			} catch (UniversityException e) {
-				
-				e.printStackTrace();
-			}
-			mAndV.setViewName("RegisterPage");
+			mAndV.setViewName("ApplicantRegistrationPage");
 			ApplicationBean applicant = new ApplicationBean();  //command object
 			mAndV.addObject("applicant", applicant);
-			mAndV.addObject("scheduleIdList", scheduleList);
+			mAndV.addObject("appId",0);
+			mAndV.addObject("scheduledId",scheduledProgramId);
 			return mAndV;
 		}
 
 
 		
-@RequestMapping(value="/applicant_register.do",method=RequestMethod.POST)
-			public ModelAndView register(@ModelAttribute("applicant") ApplicationBean applicant,BindingResult result){
+		@RequestMapping(value="/applicantRegister.do",method=RequestMethod.POST)
+			public ModelAndView register(@ModelAttribute("applicant") @Valid ApplicationBean applicant,BindingResult result){
 				ModelAndView mAndV = new ModelAndView();
-			if(result.hasErrors())
-						{
-							mAndV.setViewName("RegisterPage");
-						}
+				int applicationId = 0;
+				if(result.hasErrors())
+					{
+							mAndV.setViewName("ApplicantRegistrationPage");
+					}
 					else
 						{
 							try {
-								service.addDetail(applicant);
+								applicationId = service.addDetail(applicant);
 							} catch (UniversityException e) {
 								
 								e.printStackTrace();
 							}
+							mAndV.addObject("appId", applicationId);
 							mAndV.addObject("Applicant",applicant);
-							mAndV.setViewName("Success");
+							mAndV.setViewName("ApplicantRegistrationPage");
 						}
 				return mAndV;
 			}

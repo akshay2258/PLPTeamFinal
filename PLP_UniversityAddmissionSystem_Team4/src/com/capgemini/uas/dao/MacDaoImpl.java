@@ -1,6 +1,6 @@
 package com.capgemini.uas.dao;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -50,7 +50,7 @@ public class MacDaoImpl implements IMacDao {
 	}
 
 	@Override
-	public void updateApplicantDateOfInterview(int applicationId, LocalDate dateOfInterview)
+	public void updateApplicantDateOfInterview(int applicationId,Date dateOfInterview)
 			throws UniversityException {
 		ApplicationBean ab = manager.find(ApplicationBean.class,applicationId);
 		ab.setDateOfInterview(dateOfInterview);

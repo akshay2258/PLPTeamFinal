@@ -1,6 +1,7 @@
 package com.capgemini.uas.service;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -52,7 +53,7 @@ public class MacServiceImpl implements IMacService {
 		return macDao.updateApplicantStatus(applicationId,status);
 	}
 	@Override
-	public void updateApplicantDateOfInterview(int applicationId, LocalDate dateOfInterview)
+	public void updateApplicantDateOfInterview(int applicationId, Date dateOfInterview)
 			throws UniversityException {
 		myLogger.info("In Service updateApplicantDateOfInterview");
 			macDao.updateApplicantDateOfInterview(applicationId, dateOfInterview);

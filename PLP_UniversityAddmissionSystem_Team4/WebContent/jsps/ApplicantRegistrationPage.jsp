@@ -9,22 +9,28 @@
 		<title>Register</title>
 	</head>
 	<body>
-	
 		
-		<c:if test="${scheduleList ne null}">
-		
-			<center><h1>${pageHead }</h1></center>
-			<sf:form modelAttribute="applicant" action="applicant_register.do" method="post" >
+			<center><h1>${pageHead }</h1></center><br><br>
+			<c:if test="${appId ne 0}">
+			<h3>You are successfully registered. Your Application Id is ${appId}</h3>
+			</c:if>
+			<sf:form modelAttribute="applicant" action="applicantRegister.do" method="post" >
 				<table align="center" border="1">
+				
+				<tr>
+						<td>Program Id :</td>
+						<td> <sf:input path="scheduledProgramId" type="text" value="${scheduledId}" readonly="true"/></td>
+					</tr>
+				
 					<tr>
-						<td>Full Name :</td>
+						<td>Enter Full Name :</td>
 						<td> <sf:input path="fullName" type="text" required="true" placeholder="e.g.Vipul Gupta"/>
 						<sf:errors path="fullName" name="error"></sf:errors></td>
 					</tr>
 					
 					<tr>
-						<td>Enter DOB: </td>
-						<td><sf:input path="dateOfBirth" type="date" required="true" />
+						<td>Enter Date Of Birth: </td>
+						<td><sf:input path="dateOfBirth" type="text" required="true" />
 						<sf:errors path="dateOfBirth" name="error"></sf:errors></td>
 					</tr>
 					
@@ -33,7 +39,11 @@
 						<td><sf:input path="highestQualification" type="text" required="true" placeholder="e.g. B.Tech"/>
 						<sf:errors path="highestQualification" name="error"></sf:errors></td>
 					</tr>
-					
+					<tr>
+						<td>Enter Marks Obtained: </td>
+						<td><sf:input path="marksObtained" type="text" required="true" placeholder="e.g. 98"/>
+						<sf:errors path="marksObtained" name="error"></sf:errors></td>
+					</tr>
 					<tr>
 						<td>Enter Goals: </td>
 						<td><sf:input path="goals" type="text" required="true" placeholder="e.g. CEO"/>
@@ -46,30 +56,12 @@
 						<sf:errors path="emailId" name="error"></sf:errors></td>
 					
 					</tr>
-					
-					<tr>
-						<td>Enter Program Id in which you are Interested :</td>
-						
-						<td>
-							<sf:select path="scheduledProgramId">
-								<c:forEach items="${scheduleList}" var="scheduleProgram">
-									<option value="${scheduleProgram.scheduledProgramId }">${scheduleProgram.programName }</option>
-								</c:forEach>
-							</sf:select>
-						</td>
-					</tr>
-					
 					<tr>
 						<td><input  type="reset" value="Reset" /></td>
 						<td><input  type="submit" value="Register" /></td>
 					</tr>
 				</table>
 			</sf:form>
-		</c:if>
-		<c:if test="${scheduleList eq null}">
-			<center><h1>${pageHead }</h1></center>
-		</c:if>
 		<center><a href="home.do"></a></center>
-		
 	</body>
 </html>

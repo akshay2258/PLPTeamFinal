@@ -1,6 +1,7 @@
 package com.capgemini.uas.service;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import com.capgemini.uas.dto.ApplicationBean;
@@ -13,5 +14,5 @@ public interface IMacService {
 	public List<ApplicationBean> getApplicantsOnSchduledId(String scheduledProgramId) throws UniversityException;
 	public List<ApplicationBean> getApplicantsAfterInterviewOnId(String scheduledProgramId) throws UniversityException;
 	public String updateApplicantStatus(int applicationId,String status) throws UniversityException;
-	public void updateApplicantDateOfInterview(int applicationId, LocalDate dateOfInterview) throws UniversityException;
+	public void updateApplicantDateOfInterview(int applicationId,Date dateOfInterview) throws UniversityException;
 }

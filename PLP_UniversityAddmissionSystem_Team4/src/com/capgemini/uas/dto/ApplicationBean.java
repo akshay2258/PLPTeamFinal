@@ -1,11 +1,16 @@
 package com.capgemini.uas.dto;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="APPLICANTS")
@@ -13,13 +18,17 @@ public class ApplicationBean {
 	
 	@Id
 	@Column(name="APPLICATION_ID")
+	@SequenceGenerator(name="appSeq",sequenceName="application_id_seq",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="appSeq")
+//	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int applicationId;
 	
 	@Column(name="FULL_NAME")
 	private String fullName;
 	
 	@Column(name="DATE_OF_BIRTH")
-	private LocalDate dateOfBirth;
+	@Temporal(TemporalType.DATE)
+	private Date dateOfBirth;
 	
 	@Column(name="HIGHEST_QUALIFICATION")
 	private String highestQualification;
@@ -40,7 +49,8 @@ public class ApplicationBean {
 	private String status="applied";
 	
 	@Column(name="DATE_OF_INTERVIEW")
-	private LocalDate dateOfInterview;
+	@Temporal(TemporalType.DATE)
+	private Date dateOfInterview;
 	
 	public ApplicationBean() {
 	}
@@ -48,9 +58,9 @@ public class ApplicationBean {
 	
 	
 	public ApplicationBean(int applicationId, String fullName,
-			LocalDate dateOfBirth, String highestQualification,
+			Date dateOfBirth, String highestQualification,
 			int marksObtained, String goals, String emailId,
-			String scheduledProgramId, String status, LocalDate dateOfInterview) {
+			String scheduledProgramId, String status,Date dateOfInterview) {
 		super();
 		this.applicationId = applicationId;
 		this.fullName = fullName;
@@ -66,10 +76,10 @@ public class ApplicationBean {
 
 
 
-	public ApplicationBean(String fullName, LocalDate dateOfBirth,
+	public ApplicationBean(String fullName, Date dateOfBirth,
 			String highestQualification, int marksObtained, String goals,
 			String emailId, String scheduledProgramId, String status,
-			LocalDate dateOfInterview) {
+			Date dateOfInterview) {
 		super();
 		this.fullName = fullName;
 		this.dateOfBirth = dateOfBirth;
@@ -82,7 +92,7 @@ public class ApplicationBean {
 		this.dateOfInterview = dateOfInterview;
 	}
 
-	public ApplicationBean( String fullName, LocalDate dateOfBirth,int applicationId, String goals, String emailId) {
+	public ApplicationBean( String fullName,Date dateOfBirth,int applicationId, String goals, String emailId) {
 		super();
 		this.applicationId = applicationId;
 		this.fullName = fullName;
@@ -105,10 +115,10 @@ public class ApplicationBean {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	public LocalDate getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(LocalDate dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public String getHighestQualification() {
@@ -147,10 +157,10 @@ public class ApplicationBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public LocalDate getDateOfInterview() {
+	public Date getDateOfInterview() {
 		return dateOfInterview;
 	}
-	public void setDateOfInterview(LocalDate dateOfInterview) {
+	public void setDateOfInterview(Date dateOfInterview) {
 		this.dateOfInterview = dateOfInterview;
 	}
 	@Override

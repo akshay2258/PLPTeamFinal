@@ -155,14 +155,14 @@ public class ApplicantConsole {
 	    	break;
 	    ApplicationBean applicantBean = new ApplicationBean();
 	    applicantBean.setFullName(fullName);
-	    applicantBean.setDateOfBirth(dateOfBirth);
+	//    applicantBean.setDateOfBirth(dateOfBirth);
 	    applicantBean.setHighestQualification(highestQualification);
 	    applicantBean.setMarksObtained(marksObtained);
 	    applicantBean.setGoals(goals);
 	    applicantBean.setEmailId(emailId);
 	    applicantBean.setScheduledProgramId(scheduledProgramId);
 		dateOfInterview = LocalDate.parse("2012-12-12");
-	    applicantBean.setDateOfInterview(dateOfInterview);
+	 //   applicantBean.setDateOfInterview(dateOfInterview);
 		applicationId  = appService.addDetail(applicantBean);
 	    System.out.println("Successfully applied. Your Application Id is : " + applicationId);
 	   break;
