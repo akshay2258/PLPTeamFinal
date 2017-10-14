@@ -1,6 +1,5 @@
 package com.capgemini.uas.service;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -11,9 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.capgemini.uas.dao.IMacDao;
-import com.capgemini.uas.dao.MacDaoImpl;
 import com.capgemini.uas.dto.ApplicationBean;
-import com.capgemini.uas.dto.UsersBean;
 import com.capgemini.uas.exception.UniversityException;
 
 @Service

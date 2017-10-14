@@ -18,14 +18,15 @@ public class UsersServiceImpl implements IUsersService {
 	private IUsersDao uDao;
 	
 	@Override
-	public void checkUser(UsersBean userBeanMain) throws UniversityException {
+	public String checkUser(UsersBean userBeanMain) throws UniversityException {
 		UsersBean userBeanDao = uDao.getUserOnId(userBeanMain.getLoginId());
 		if (userBeanDao==null)
 			throw new UniversityException("No Such UserName Found");
 		else {
 			if(userBeanDao.getPassword().equals(userBeanMain.getPassword())) {
-				if(!userBeanDao.getRole().equals(userBeanMain.getRole()))
-					throw new UniversityException("Not a valid "+userBeanMain.getRole());
+				return userBeanDao.getRole();
+//				if(!userBeanDao.getRole().equals(userBeanMain.getRole()))
+//					throw new UniversityException("Not a valid "+userBeanMain.getRole());
 			}
 			else{
 				throw new UniversityException("Password is Wrong");

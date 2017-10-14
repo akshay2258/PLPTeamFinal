@@ -18,10 +18,7 @@ public class UsersDaoImpl implements IUsersDao {
 
 	@Override
 	public UsersBean getUserOnId(String loginId) throws UniversityException {
-		TypedQuery<UsersBean> qry = manager.createQuery(IQueryMapper.GET_USER,UsersBean.class);
-		qry.setParameter("ptitle",loginId);
-		UsersBean ub = qry.getSingleResult();
-		return ub;
+		return manager.find(UsersBean.class,loginId);
 	}
 
 }

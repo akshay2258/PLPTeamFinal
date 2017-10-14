@@ -129,5 +129,19 @@ public class AdminServiceImpl implements IAdminService {
 			return false;
 		}
 	}
+
+	@Override
+	public List<ProgramOfferedBean> getOfferedProgram()
+			throws UniversityException {
+		
+		return dao.getOfferedProgram();
+	}
+
+	@Override
+	public List<ProgramScheduledBean> getScheduledProgListForProg(String prog)
+			throws UniversityException {
+		
+		return dao.getScheduledProgListForProg(prog);
+	}
 	
 }

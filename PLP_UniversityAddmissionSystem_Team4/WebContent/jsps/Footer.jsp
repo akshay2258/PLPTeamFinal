@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Footer</title>
 </head>
 <body>
-
+Copyright @ 2017 <b>shuklaInstitutions.org. All rights reserved.</b>
 </body>
 </html>

@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>:: Error-Page::</title>
 </head>
-<body>
-
+<body bgcolor="#FFF8DC">
+<center>
+	<h3>Error Occurred!</h3>
+</center>
+<h3>The Following Error Occurred:</h3>
+<h4><font color="red">${error}</font></h4>
+<center>
+<a href="index.jsp">Go Back To HomePage</a>
+</center>
 </body>
 </html>

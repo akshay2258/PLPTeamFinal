@@ -25,4 +25,6 @@ public interface IAdminDao {
 	public List<ApplicationBean> getApplicantsByScheduledProgramId(String pScheduledId) throws UniversityException;
 	public boolean generateParticipants(List<ApplicationBean> confApplicants) throws UniversityException;
 	public List<ApplicationBean> getAllConfirmedApplicants() throws UniversityException;
+	public List<ProgramOfferedBean> getOfferedProgram() throws UniversityException;
+	public List<ProgramScheduledBean> getScheduledProgListForProg(String prog) throws UniversityException;
 }

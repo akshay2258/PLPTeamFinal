@@ -32,8 +32,9 @@ public class ApplicantController {
 				List<ProgramScheduledBean> psb = service.showProgramScheduled();
 				mAndV.addObject("scheduledProgramList",psb);
 			} catch (UniversityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				mAndV.addObject("error",e.getMessage());
+				mAndV.setViewName("Error");
+				return mAndV;
 			}
 			mAndV.setViewName("Welcome");
 			return mAndV;
@@ -43,9 +44,10 @@ public class ApplicantController {
 		@RequestMapping("/getApplicantRegisterationPage.do")
 		public ModelAndView getRegisterationPage(@RequestParam("schId") String scheduledProgramId){
 			ModelAndView mAndV = new ModelAndView();
-			mAndV.setViewName("ApplicantRegistrationPage");
+			mAndV.setViewName("Welcome");
 			ApplicationBean applicant = new ApplicationBean();  //command object
 			mAndV.addObject("applicant", applicant);
+			mAndV.addObject("applyFlag","Applying");
 			mAndV.addObject("appId",0);
 			mAndV.addObject("scheduledId",scheduledProgramId);
 			return mAndV;
@@ -59,23 +61,49 @@ public class ApplicantController {
 				int applicationId = 0;
 				if(result.hasErrors())
 					{
-							mAndV.setViewName("ApplicantRegistrationPage");
+							mAndV.setViewName("Welcome");
 					}
 					else
 						{
 							try {
 								applicationId = service.addDetail(applicant);
 							} catch (UniversityException e) {
-								
-								e.printStackTrace();
+								mAndV.addObject("error",e.getMessage());
+								mAndV.setViewName("Error");
+								return mAndV;
 							}
+							mAndV.addObject("applyFlag","Applied");
 							mAndV.addObject("appId", applicationId);
 							mAndV.addObject("Applicant",applicant);
-							mAndV.setViewName("ApplicantRegistrationPage");
+							mAndV.setViewName("Welcome");
 						}
 				return mAndV;
 			}
 		
+		@RequestMapping("/applicantShowStatusPage.do")
+		public ModelAndView MACApplicantsListPage(){
+			ModelAndView mAndV = new ModelAndView();
+			mAndV.addObject("applicant",null);
+			mAndV.addObject("statusFlag","Check Status");
+			mAndV.setViewName("Welcome");
+			return mAndV;
+		}
 		
+		@RequestMapping("/applicantShowStatus.do")
+		public ModelAndView applicantShowStatus(@RequestParam("applicationId") int applicationId){
+			ModelAndView mAndV = new ModelAndView();
+			ApplicationBean appBean = null;
+			try {
+				appBean = service.showStatus(applicationId);
+			} catch (UniversityException e) {
+				mAndV.addObject("error",e.getMessage());
+				mAndV.setViewName("Error");
+				return mAndV;
+			}
+			mAndV.addObject("statusFlag","Checked Status");
+			mAndV.addObject("applicant",appBean);
+			mAndV.setViewName("Welcome");
+			return mAndV;
+		}
 		
 }

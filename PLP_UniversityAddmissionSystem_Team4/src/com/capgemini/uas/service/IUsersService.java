@@ -5,5 +5,5 @@ import com.capgemini.uas.exception.UniversityException;
 
 public interface IUsersService {
 
-	public void checkUser(UsersBean userBeanMain) throws UniversityException;
+	public String checkUser(UsersBean userBeanMain) throws UniversityException;
 }

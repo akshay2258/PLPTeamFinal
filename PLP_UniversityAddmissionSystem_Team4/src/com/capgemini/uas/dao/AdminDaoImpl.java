@@ -117,5 +117,22 @@ public class AdminDaoImpl implements IAdminDao {
 		TypedQuery<ApplicationBean> qry = manager.createQuery(IQueryMapper.LIST_APPLICANTS_CONFIRMED,ApplicationBean.class);
 		List<ApplicationBean> confApplicantsList = qry.getResultList();
 		return confApplicantsList;
+	}
+
+	@Override
+	public List<ProgramOfferedBean> getOfferedProgram()
+			throws UniversityException {
+		TypedQuery<ProgramOfferedBean> qry = manager.createQuery(IQueryMapper.LIST_ALLPROGRAM_OFFERED,ProgramOfferedBean.class);
+		List<ProgramOfferedBean> OfferedList = qry.getResultList();
+		return OfferedList;
+	}
+
+	@Override
+	public List<ProgramScheduledBean> getScheduledProgListForProg(String prog) throws UniversityException {
+		String strqry="select p from ProgramScheduledBean p where programName=?";
+		TypedQuery<ProgramScheduledBean> qry = manager.createQuery(strqry,ProgramScheduledBean.class);
+		qry.setParameter(1,prog);
+		List<ProgramScheduledBean> pscheduledList = qry.getResultList();
+		return pscheduledList;
 	}	
 }

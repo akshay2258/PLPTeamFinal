@@ -29,6 +29,7 @@ public interface IQueryMapper {
 	public static final String INSERT_PROGRAM_OFFERED="INSERT program_offered VALUES(?,?,?,?,?)";
 	public static final String DELETE_PROGRAM_OFFERED="DELETE program_offered WHERE program_name=?";*/
 	public static final String LIST_PROGRAMNAME_OFFERED="SELECT pob.programName FROM ProgramOfferedBean pob";
+	public static final String LIST_ALLPROGRAM_OFFERED="SELECT pob FROM ProgramOfferedBean pob";
 	
 	// for program_scheduled table
 	public static final String LIST_PROGRAMID="SELECT psb.scheduledProgramId FROM ProgramScheduledBean psb";
@@ -42,6 +43,7 @@ public interface IQueryMapper {
 	public static final String DELETE_PROGRAM_SCHEDULED="DELETE program_Scheduled WHERE Scheduled_program_id=?";*/
 //	public static final String GET_SCHEDULED_IDS = "SELECT Scheduled_program_id FROM program_Scheduled";
 	public static final String LIST_PROGRAMNAME_SCHEDULED="SELECT psb.programName FROM ProgramScheduledBean psb";
+	
 	// for participant table
 	//public static final String INSERT_PARTICIPANT="INSERT INTO participants VALUES(roll_no_seq.NEXTVAL,?,?,?)";
 	

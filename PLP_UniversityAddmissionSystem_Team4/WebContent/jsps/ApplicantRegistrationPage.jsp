@@ -9,7 +9,7 @@
 		<title>Register</title>
 	</head>
 	<body>
-		
+			<jsp:include page="Header.jsp"></jsp:include>
 			<center><h1>${pageHead }</h1></center><br><br>
 			<c:if test="${appId ne 0}">
 			<h3>You are successfully registered. Your Application Id is ${appId}</h3>

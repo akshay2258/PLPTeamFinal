@@ -15,12 +15,17 @@ public interface IAdminService {
 	public List<ProgramScheduledBean> getAllDetails() throws UniversityException;
 	public List<String> getAllScheduleId() throws UniversityException;
 	//public List<ApplicationBean> getAllConfirmedDetails(String schProgramId) throws UniversityException;
+	
 	public List<String> getAllProgramName() throws UniversityException;
 	public boolean validateProgramDescription(String pDesc);
 	public List<String> getAllScheduleNames() throws UniversityException;
 	public boolean validateLocation(String location);
+	
 	public List<ApplicationBean> getApplicantsByStatusByScheduledProgramId(String status,String pScheduledId) throws UniversityException;
 	public List<ApplicationBean> getApplicantsByScheduledProgramId(String pScheduledId) throws UniversityException;
 	public boolean generateParticipants(List<ApplicationBean> confApplicants) throws UniversityException;
 	public List<ApplicationBean> getAllConfirmedApplicants() throws UniversityException;
+	public List<ProgramOfferedBean> getOfferedProgram() throws UniversityException;
+	public List<ProgramScheduledBean> getScheduledProgListForProg(String prog) throws UniversityException;
+
 }
