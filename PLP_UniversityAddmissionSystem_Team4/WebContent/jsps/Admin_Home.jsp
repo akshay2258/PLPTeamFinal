@@ -11,7 +11,7 @@
 		
 		 <style type="text/css">
 			#leftside{
-				position:absolute;
+				position:abso0;
 				left:0%;
 				width:20%;
 				height:80%;

@@ -17,10 +17,11 @@ public class UniversityController {
 	@Resource
 	IUsersService service;
 	
-	@RequestMapping("/home.do")
+	@RequestMapping("/getHomePage.do")
 	public ModelAndView goToHome(){
 		ModelAndView mAndV = new ModelAndView();
-		mAndV.setViewName("Welcome");
+		//mAndV.setViewName("Welcome");
+		mAndV.setViewName("test3");
 		return mAndV;
 		
 	}
@@ -36,7 +37,7 @@ public class UniversityController {
 			role = service.checkUser(userBeanMain);
 			if(role.equals("admin")){
 				mAndV.addObject("role",role);
-				mAndV.addObject("userName",userBeanMain.getLoginId());
+				mAndV.addObject("loginId",userBeanMain.getLoginId());
 				mAndV.setViewName("Admin_Home");
 				return mAndV;
 			}else if(role.equals("mac")){

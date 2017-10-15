@@ -36,7 +36,8 @@ public class ApplicantController {
 				mAndV.setViewName("Error");
 				return mAndV;
 			}
-			mAndV.setViewName("Welcome");
+//			mAndV.setViewName("Welcome");
+			mAndV.setViewName("test3");
 			return mAndV;
 			
 		}

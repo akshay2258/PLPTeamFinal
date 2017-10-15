@@ -23,17 +23,23 @@
 				border: 2px solid green;
 			
 			}
+			 #wrapper { 
+	   width: 100%; 
+		   margin: 0 auto; } 
+	
+		 #main { 
+		 background-color: #fff; 
+		 padding-top: 150px; }
 		</style>
-		<script src="/PLP_UniversityAddmissionSystem_Team4/jsLib/jquery-1.12.3.js" type="text/javascript"></script>
-		<script src="/PLP_UniversityAddmissionSystem_Team4/jsLib/MyJsLib.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<jsp:include page="Header.jsp">
+		<div id="wrapper">
+		<jsp:include page="Header1.jsp">
 			<jsp:param value="${loginId}" name="loginId"/>
 		</jsp:include>
 		
+		<div id="main">
 		<center>	
-			<br><br>
 			<div id="left">
 		<a href="applicantSheduledProgramlist.do">Scheduled Programs</a> <br><br>
 		<a href="applicantShowStatusPage.do">Check Status</a><br><br>
@@ -138,5 +144,7 @@
 			</c:if>
 	</c:if>
 		</center>
+		</div>
+		</div>
 	</body>
 </html>

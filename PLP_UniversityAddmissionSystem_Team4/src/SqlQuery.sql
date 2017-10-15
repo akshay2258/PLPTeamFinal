@@ -7,7 +7,24 @@ duration number,
 degree_certificate_offered varchar2(10)
 );
 
-delete from program_offered where Program_Name='Btech';
+
+insert into PROGRAM_OFFERED values('Btech','Engineering','Above 80% in SSC',4,'UG Certi');
+insert into PROGRAM_OFFERED values('Mtech','Engineering','Above 80% in Btech',2,'PG Certi');
+insert into PROGRAM_OFFERED values('BBA','Management','SSC Passed with above 80% in PCM',3,'UG Certi');
+insert into PROGRAM_OFFERED values('MBA','Management','Above 80% in UG Course',2,'PG Certi');
+insert into PROGRAM_OFFERED values('B.COM','Commerece','Above 80% in SSC',3,'UG Certi');
+insert into PROGRAM_OFFERED values('M.COM','Engineering Course','Above 80% in B.Com',2,'PG Certi');
+insert into PROGRAM_OFFERED values('BSc','Science','Above 80% in SSC',3,'UG Certi');
+insert into PROGRAM_OFFERED values('MSc','Science','Above 80% in BSc',2,'PG Certi');
+insert into PROGRAM_OFFERED values('MBBS','Medical','Above 80% in SSC',5,'PG Certi');
+insert into PROGRAM_OFFERED values('BDS','Dental Science','Above 80% in SSC',3,'UG Certi');
+insert into PROGRAM_OFFERED values('BA','Arts','Above 80% in SSC',3,'UG Certi');
+insert into PROGRAM_OFFERED values('MA','Arts','Above 80% in BA',2,'PG Certi');
+insert into PROGRAM_OFFERED values('PHD','Doctrate','Above 80% in Bachelor Degree',4,'PHD Certi');
+
+select * from PROGRAM_OFFERED;
+
+
 insert into PROGRAM_OFFERED values('Btech','Mechanical','SSC Passed',4,'UG Certi');
 insert into PROGRAM_OFFERED values('BSc','Chemistry','SSC Passed',3,'UG Certi');
 insert into PROGRAM_OFFERED values('MBA','HR','SSC Passed',2,'PG Certi');
@@ -23,6 +40,96 @@ create table program_Scheduled (
 		end_date date, 
 		sessions_per_week number
 );
+insert into PROGRAM_SCHEDULED values('E101','Btech','Mumbai','02-Apr-2018','02-Apr-2022',5);
+insert into PROGRAM_SCHEDULED values('E201','Btech','Banglore','02-Apr-2018','02-Apr-2022',5);
+insert into PROGRAM_SCHEDULED values('E301','Btech','Pune','02-Apr-2018','02-Apr-2022',5);
+insert into PROGRAM_SCHEDULED values('E401','Btech','Delhi','02-Apr-2018','02-Apr-2022',5);
+
+insert into PROGRAM_SCHEDULED values('E102','Mtech','Mumbai','02-Apr-2018','02-Apr-2020',5);
+insert into PROGRAM_SCHEDULED values('E202','Mtech','Banglore','02-Apr-2018','02-Apr-2020',5);
+insert into PROGRAM_SCHEDULED values('E302','Mtech','Pune','02-Apr-2018','02-Apr-2020',5);
+insert into PROGRAM_SCHEDULED values('E402','Mtech','Delhi','02-Apr-2018','02-Apr-2020',5);
+
+insert into PROGRAM_SCHEDULED values('E1','PHD','Mumbai','02-Apr-2018','02-Apr-2022',4);
+insert into PROGRAM_SCHEDULED values('E2','PHD','Banglore','02-Apr-2018','02-Apr-2022',4);
+insert into PROGRAM_SCHEDULED values('E3','PHD','Pune','02-Apr-2018','02-Apr-2022',4);
+insert into PROGRAM_SCHEDULED values('E4','PHD','Delhi','02-Apr-2018','02-Apr-2022',4);
+
+insert into PROGRAM_SCHEDULED values('MG101','BBA','Mumbai','02-May-2018','02-May-2021',5);
+insert into PROGRAM_SCHEDULED values('MG201','BBA','Banglore','02-May-2018','02-May-2021',5);
+insert into PROGRAM_SCHEDULED values('MG301','BBA','Pune','02-May-2018','02-May-2021',5);
+insert into PROGRAM_SCHEDULED values('MG401','BBA','Delhi','02-May-2018','02-May-2021',5);
+
+insert into PROGRAM_SCHEDULED values('MG102','MBA','Mumbai','02-May-2018','02-May-2020',5);
+insert into PROGRAM_SCHEDULED values('MG202','MBA','Banglore','02-May-2018','02-May-2020',5);
+insert into PROGRAM_SCHEDULED values('MG302','MBA','Pune','02-May-2018','02-May-2020',5);
+insert into PROGRAM_SCHEDULED values('MG402','MBA','Delhi','02-May-2018','02-May-2020',5);
+
+insert into PROGRAM_SCHEDULED values('MG1','PHD','Mumbai','02-May-2018','02-May-2022',4);
+insert into PROGRAM_SCHEDULED values('MG2','PHD','Banglore','02-May-2018','02-May-2022',4);
+insert into PROGRAM_SCHEDULED values('MG3','PHD','Pune','02-May-2018','02-May-2022',4);
+insert into PROGRAM_SCHEDULED values('MG4','PHD','Delhi','02-May-2018','02-May-2022',4);
+
+insert into PROGRAM_SCHEDULED values('CM101','B.COM','Mumbai','02-Jun-2018','02-Jun-2021',5);
+insert into PROGRAM_SCHEDULED values('CM201','B.COM','Banglore','02-Jun-2018','02-Jun-2021',5);
+insert into PROGRAM_SCHEDULED values('CM301','B.COM','Pune','02-Jun-2018','02-Jun-2021',5);
+insert into PROGRAM_SCHEDULED values('CM401','B.COM','Delhi','02-Jun-2018','02-Jun-2021',5);
+
+insert into PROGRAM_SCHEDULED values('CM102','M.COM','Mumbai','02-Jun-2018','02-Jun-2020',5);
+insert into PROGRAM_SCHEDULED values('CM202','M.COM','Banglore','02-Jun-2018','02-Jun-2020',5);
+insert into PROGRAM_SCHEDULED values('CM302','M.COM','Pune','02-Jun-2018','02-Jun-2020',5);
+insert into PROGRAM_SCHEDULED values('CM402','M.COM','Delhi','02-Jun-2018','02-Jun-2020',5);
+
+insert into PROGRAM_SCHEDULED values('CM1','PHD','Mumbai','02-Jun-2018','02-Jun-2022',4);
+insert into PROGRAM_SCHEDULED values('CM2','PHD','Banglore','02-Jun-2018','02-Jun-2022',4);
+insert into PROGRAM_SCHEDULED values('CM3','PHD','Pune','02-Jun-2018','02-Jun-2022',4);
+insert into PROGRAM_SCHEDULED values('CM4','PHD','Delhi','02-Jun-2018','02-Jun-2022',4);
+
+insert into PROGRAM_SCHEDULED values('SC101','BSc','Mumbai','02-Apr-2018','02-Apr-2021',5);
+insert into PROGRAM_SCHEDULED values('SC201','BSc','Banglore','02-Apr-2018','02-Apr-2021',5);
+insert into PROGRAM_SCHEDULED values('SC301','BSc','Pune','02-Apr-2018','02-Apr-2021',5);
+insert into PROGRAM_SCHEDULED values('SC401','BSc','Delhi','02-Apr-2018','02-Apr-2021',5);
+
+insert into PROGRAM_SCHEDULED values('SC102','MSc','Mumbai','02-Apr-2018','02-Apr-2020',5);
+insert into PROGRAM_SCHEDULED values('SC202','MSc','Banglore','02-Apr-2018','02-Apr-2020',5);
+insert into PROGRAM_SCHEDULED values('SC302','MSc','Pune','02-Apr-2018','02-Apr-2020',5);
+insert into PROGRAM_SCHEDULED values('SC402','MSc','Delhi','02-Apr-2018','02-Apr-2020',5);
+
+insert into PROGRAM_SCHEDULED values('SC1','PHD','Mumbai','02-Apr-2018','02-Apr-2022',4);
+insert into PROGRAM_SCHEDULED values('SC2','PHD','Banglore','02-Apr-2018','02-Apr-2022',4);
+insert into PROGRAM_SCHEDULED values('SC3','PHD','Pune','02-Apr-2018','02-Apr-2022',4);
+insert into PROGRAM_SCHEDULED values('SC4','PHD','Delhi','02-Apr-2018','02-Apr-2022',4);
+
+insert into PROGRAM_SCHEDULED values('AR101','BA','Mumbai','02-May-2018','02-May-2021',5);
+insert into PROGRAM_SCHEDULED values('AR201','BA','Banglore','02-May-2018','02-May-2021',5);
+insert into PROGRAM_SCHEDULED values('AR301','BA','Pune','02-May-2018','02-May-2021',5);
+insert into PROGRAM_SCHEDULED values('AR401','BA','Delhi','02-May-2018','02-May-2021',5);
+
+insert into PROGRAM_SCHEDULED values('AR102','MA','Mumbai','02-May-2018','02-May-2020',5);
+insert into PROGRAM_SCHEDULED values('AR202','MA','Banglore','02-May-2018','02-May-2020',5);
+insert into PROGRAM_SCHEDULED values('AR302','MA','Pune','02-May-2018','02-May-2020',5);
+insert into PROGRAM_SCHEDULED values('AR402','MA','Delhi','02-May-2018','02-May-2020',5);
+
+insert into PROGRAM_SCHEDULED values('AR1','PHD','Mumbai','02-May-2018','02-May-2022',4);
+insert into PROGRAM_SCHEDULED values('AR2','PHD','Banglore','02-May-2018','02-May-2022',4);
+insert into PROGRAM_SCHEDULED values('AR3','PHD','Pune','02-May-2018','02-May-2022',4);
+insert into PROGRAM_SCHEDULED values('AR4','PHD','Delhi','02-May-2018','02-May-2022',4);
+
+insert into PROGRAM_SCHEDULED values('DS101','BDS','Mumbai','02-Jun-2018','02-Jun-2021',5);
+insert into PROGRAM_SCHEDULED values('DS201','BDS','Banglore','02-Jun-2018','02-Jun-2021',5);
+insert into PROGRAM_SCHEDULED values('DS301','BDS','Pune','02-Jun-2018','02-Jun-2021',5);
+insert into PROGRAM_SCHEDULED values('DS401','BDS','Delhi','02-Jun-2018','02-Jun-2021',5);
+
+insert into PROGRAM_SCHEDULED values('MD102','MA','Mumbai','02-Jun-2018','02-Jun-2020',5);
+insert into PROGRAM_SCHEDULED values('MD202','MA','Banglore','02-Jun-2018','02-Jun-2020',5);
+insert into PROGRAM_SCHEDULED values('MD302','MA','Pune','02-Jun-2018','02-Jun-2020',5);
+insert into PROGRAM_SCHEDULED values('MD402','MA','Delhi','02-Jun-2018','02-Jun-2020',5);
+
+insert into PROGRAM_SCHEDULED values('MD1','PHD','Mumbai','02-Jun-2018','02-Jun-2022',4);
+insert into PROGRAM_SCHEDULED values('MD2','PHD','Banglore','02-Jun-2018','02-Jun-2022',4);
+insert into PROGRAM_SCHEDULED values('MD3','PHD','Pune','02-Jun-2018','02-Jun-2022',4);
+insert into PROGRAM_SCHEDULED values('MD4','PHD','Delhi','02-Jun-2018','02-Jun-2022',4);
+
 
 insert into PROGRAM_SCHEDULED values(program_sch_id_seq.NEXTVAL,'Btech','Mumbai','02-Apr-2018','02-Apr-2022',5);
 insert into PROGRAM_SCHEDULED values(program_sch_id_seq.NEXTVAL,'Btech','Mumbai','02-Sep-2018','02-Sep-2022',5);
@@ -38,8 +145,8 @@ insert into PROGRAM_SCHEDULED values(program_sch_id_seq.NEXTVAL,'BDS','Kolkata',
 insert into PROGRAM_SCHEDULED values(program_sch_id_seq.NEXTVAL,'BDS','Kolkata','12-Feb-2018','02-Feb-2022',5);
 insert into PROGRAM_SCHEDULED values('1001','Btech','mumbai','02-FEB-2017','01-FEB-2021',5);
 select * from PROGRAM_SCHEDULED;
-DROP TABLE PROGRAM_SCHEDULED;
-DROP TABLE applicants;
+DROP TABLE PROGRAM_SCHEDULED cascade constraints;
+DROP TABLE applicants cascade constraints;
 
 create table applicants( 
 	Application_id number  Constraint applicants_pk primary key,
