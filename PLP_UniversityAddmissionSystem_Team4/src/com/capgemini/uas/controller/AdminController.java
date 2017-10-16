@@ -23,13 +23,14 @@ public class AdminController {
 	@Resource
 	IAdminService service;
 
-	@RequestMapping()
+	/*@RequestMapping("/getAdminHomePage.do")
 	public ModelAndView getAdminHomePage(){
+		System.out.println("in admin fun");
 		ModelAndView mAndV = new ModelAndView();
 		
 		mAndV.setViewName("Admin_Home");
 		return mAndV;
-	}
+	}*/
 	
 	@RequestMapping("/AdminSheduledProgramlist.do")
 	public ModelAndView getScheduleProgramList() throws UniversityException{

@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,6 +20,7 @@ public class UniversityController {
 	
 	@RequestMapping("/getHomePage.do")
 	public ModelAndView goToHome(){
+		System.out.println("in home page fun");
 		ModelAndView mAndV = new ModelAndView();
 		//mAndV.setViewName("Welcome");
 		mAndV.setViewName("test3");
@@ -26,7 +28,17 @@ public class UniversityController {
 		
 	}
 	
-	@RequestMapping("/validateUser.do")
+	@RequestMapping("/getLoginHomePage.do")
+	public ModelAndView getLoginPage(){
+		System.out.println("in login fun");
+		ModelAndView mAndV = new ModelAndView();
+		//mAndV.setViewName("Welcome");
+		mAndV.setViewName("UniversityLogin");
+		return mAndV;
+		
+	}
+	
+	@RequestMapping(value="/validateUser.do",method=RequestMethod.POST)
 	public ModelAndView validateUser(@RequestParam("loginId") String loginId, @RequestParam("password") String password){
 		UsersBean userBeanMain = new UsersBean();
 		String role; 

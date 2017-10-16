@@ -416,7 +416,7 @@
 				      <a href="#">Banglore</a>
 				    </div>
 				    </div>
-	            <a href="javascript:void(0)" >Contact Us</a>
+	             <a href="getLoginHomePage.do" >Log In</a>
 	        </nav>
 	        </div>
 	</header><!-- /header -->
@@ -435,7 +435,6 @@
 				      <a href="#">Banglore</a>
 				    </div>
 				    </div>
-	            <a href="javascript:void(0)" >Contact Us</a>
 	        </nav>
 				<div id="leftside">
 				<br><br>
