@@ -23,22 +23,20 @@
 				border: 2px solid green;
 			
 			}
-			 #wrapper { 
+		 /* 	 #wrapper { 
 	   width: 100%; 
 		   margin: 0 auto; } 
 	
 		 #main { 
 		 background-color: #fff; 
-		 padding-top: 150px; }
+		 padding-top: 150px; } */
 		</style>
 	</head>
 	<body>
-		<div id="wrapper">
-		<jsp:include page="Header1.jsp">
+		<jsp:include page="Header.jsp">
 			<jsp:param value="${loginId}" name="loginId"/>
 		</jsp:include>
 		
-		<div id="main">
 		<center>	
 			<div id="left">
 		<a href="applicantSheduledProgramlist.do">Scheduled Programs</a> <br><br>
@@ -144,7 +142,5 @@
 			</c:if>
 	</c:if>
 		</center>
-		</div>
-		</div>
 	</body>
 </html>

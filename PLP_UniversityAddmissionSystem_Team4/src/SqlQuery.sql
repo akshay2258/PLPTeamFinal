@@ -147,7 +147,6 @@ insert into PROGRAM_SCHEDULED values('1001','Btech','mumbai','02-FEB-2017','01-F
 select * from PROGRAM_SCHEDULED;
 DROP TABLE PROGRAM_SCHEDULED cascade constraints;
 DROP TABLE applicants cascade constraints;
-
 create table applicants( 
 	Application_id number  Constraint applicants_pk primary key,
 	full_name varchar2(20),

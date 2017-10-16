@@ -72,7 +72,7 @@
 		</style>
 	</head>
 	<body>
-		<%-- <center>
+		<center>
 			<h1>Welcome to Shukla Group of Institutions</h1>
 			</center><br/>
 				<div align="right">
@@ -87,8 +87,8 @@
 							<h3>Welcome ${role} ${loginId}</h3>
 						</c:if>
 				</div><br><br>
-			<center> --%>
-			<ul>
+			<center> 
+			<!-- <ul>
 				  <li><a href = "getHomePage.do">Home</a></li>
 				  <li><a href = "getHomePage.do">Program List</a></li>
 				  <li style="float:right" class="dropdown">
@@ -99,7 +99,7 @@
 				      <a href="#">Link 3</a>
 				    </div>
 				  </li>
-			</ul>
+			</ul> -->
 		</center>
 	</body>
 </html>

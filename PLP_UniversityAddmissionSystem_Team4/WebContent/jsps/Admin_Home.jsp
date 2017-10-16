@@ -11,17 +11,17 @@
 		
 		 <style type="text/css">
 			#leftside{
-				position:abso0;
+				position:fixed;
 				left:0%;
 				width:20%;
-				height:80%;
+				height:100%;
 				background-color:#CD853F;
 			}
 			#rightside{
 				position:absolute;
 				right:0%;	
 				width:79%;	
-				height:80%;
+				height:auto;
 				background-color:#FFFACD;
 			}
 			#top{

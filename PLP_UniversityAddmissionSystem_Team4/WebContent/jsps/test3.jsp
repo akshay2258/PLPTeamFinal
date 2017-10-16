@@ -11,7 +11,7 @@
 	<!-- <meta charset="utf-8" /> -->
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	<meta name="description" content="" />
-	<title>Header Resize On Scroll with Animations</title>
+	<title>University Page</title>
 	    
 	<!-- css -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,700,400italic' rel='stylesheet' type='text/css'>
@@ -34,8 +34,8 @@
 	  padding: 0;
 	  vertical-align: baseline; }
 	
-	body {
-	  line-height: 1; }
+/*	body {
+	  line-height: 1; }*/
 	
 	h1, h2, h3, h4, h5, h6 {
 	  clear: both;
@@ -80,12 +80,21 @@
 	  box-sizing: border-box; }
 	
 	body {
-	  background-color: #3cb5f9;
-	  color: #505050;
-	  font-family: "Ubuntu", sans-serif;
-	  font-weight: 300;
-	  font-size: 16px;
-	  line-height: 1.8; }
+	/*  background-color: #3cb5f9;*/
+	 background-image:url("images/frontpage.jpg");
+	/*  color: #505050;*/
+	  font-family: "Ubuntu", sans-serif; 
+	  font-weight: 300; 
+	  background-position: 250px 50px;
+ 	  font-size: 16px; 
+ 	  line-height: 1.8;
+ 	  	background-size: cover;
+ 	/*  	background-repeat:no-repeat;*/
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-attachment: fixed;
+ 	   } 
 	
 	/* Headings */
 	h1, h2, h3, h4, h5, h6 {
@@ -107,7 +116,8 @@
 		   margin: 0 auto; } 
 	
 	#main { 
-		background-color: #fff; 
+		background-color: #fff;
+		 
 		 padding-top: 150px; }
 	
 	
@@ -116,14 +126,19 @@
 				width:20%;
 				height:100%;
 				position: fixed;
-				background-color:white;
+				/* background-color:#ffdab9; */
+				background-color:#643d01;
 			}
 	#rightside{
+			`	
+				text-align:center;
 				position:absolute;
-				right:0%;	
+				left:20%;	
 				width:80%;	
 				height:auto;
-				background-color:#FFFACD;
+			/*	background-color:#FFFACD;*/
+				background-color:white;
+			/*background-image:url("images/frontpage.jpg");*/
 			}
 	
 	/* =Header
@@ -131,12 +146,13 @@
 	header {
 	  width: 100%;
 	  height: 150px;
-	  overflow: hidden;
+	 /* overflow: hidden;*/
 	  position: fixed;
 	  top: 0;
 	  left: 0;
 	  z-index: 999;
-	  background-color: #0683c9;
+	  background-color:#778899;
+		/* background-color: #0683c9;*/
 	  -webkit-transition: height 0.3s;
 	  -moz-transition: height 0.3s;
 	  -ms-transition: height 0.3s;
@@ -175,7 +191,7 @@
 	  header.smaller {
 	    height: 75px; }
 	    header.smaller h1#logo {
-	      width: 150px;
+	      width: 200px;
 	      height: 75px;
 	      line-height: 75px;
 	      font-size: 30px; }
@@ -202,7 +218,7 @@
     display: inline-block;
     color: #9fdbfc;
     text-align: center;
-    padding: 14px 16px;
+    padding:inherit;
     text-decoration: none;
 }
 
@@ -211,7 +227,7 @@
 			}
 
 .dropdown {
-    display: inline-block;
+    display:inline-block;
 }
 
 .dropdown-content {
@@ -378,19 +394,19 @@
 	    window.onload = init();
 	</script>
 	</head>
-	
-	
-	
 	<body>
 	<div id="wrapper">
 	<header>
 	    <div class="container clearfix">
 	        <h1 id="logo">
-	            Shukla Group of Institutions
+	            SGI
 	        </h1>
+	         
 	        <nav>
 	            <a href = "getHomePage.do">Home</a>
 	            <a href = "#">Program List</a>
+	            <a href = "getAdminHomePage.do">Admin Page</a>
+	            <a href = "#">About SGI</a>
 	            <div class="dropdown">
 				    <a href="javascript:void(0)" class="dropbtn">Program By Location</a>
 				    <div class="dropdown-content">
@@ -400,13 +416,29 @@
 				      <a href="#">Banglore</a>
 				    </div>
 				    </div>
-	            <a href = "#">About SGI</a>
 	            <a href="javascript:void(0)" >Contact Us</a>
 	        </nav>
 	        </div>
 	</header><!-- /header -->
 		<div id="main">
+	 <nav>
+	            <a href = "getHomePage.do">Home</a>
+	            <a href = "#">Program List</a>
+	            <a href = "getAdminHomePage.do">Admin Page</a>
+	            <a href = "#">About SGI</a>
+	            <div class="dropdown">
+				    <a href="javascript:void(0)" class="dropbtn">Program By Location</a>
+				    <div class="dropdown-content">
+				      <a href="#">Mumbai</a>
+				      <a href="#">Pune</a>
+				      <a href="#">Delhi</a>
+				      <a href="#">Banglore</a>
+				    </div>
+				    </div>
+	            <a href="javascript:void(0)" >Contact Us</a>
+	        </nav>
 				<div id="leftside">
+				<br><br>
 			<a href="applicantSheduledProgramlist.do">Scheduled Programs</a> <br><br>
 			<a href="applicantShowStatusPage.do">Check Status</a><br><br>
 			</div>
