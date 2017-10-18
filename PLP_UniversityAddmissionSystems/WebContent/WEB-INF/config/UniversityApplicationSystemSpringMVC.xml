@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/mvc 
+http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	
+	<bean id="myBeansValidator"
+    class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+    <mvc:annotation-driven validator="myBeansValidator"/>
+    
+	<context:component-scan base-package="com.capgemini.uas.controller"/>
+	<!-- it's default view resolver -->
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+		<property name="prefix"><value>/jsps/</value></property>
+		<property name="suffix"><value>.jsp</value></property>
+  </bean> 
+  <mvc:resources mapping="/resources/**" location="/WEB-INF/jsps/" cache-period="31556926"/>
+  <mvc:annotation-driven/>
+</beans>
+
