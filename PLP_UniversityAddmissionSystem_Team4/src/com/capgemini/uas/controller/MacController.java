@@ -1,5 +1,7 @@
 package com.capgemini.uas.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -116,6 +118,7 @@ public class MacController {
 		}
 		mAndV.addObject("appId",applicationId);
 		mAndV.addObject("status",status);
+		mAndV.addObject("sysdate",LocalDate.now());
 		mAndV.addObject("successMsg","Successfully Updated");
 		mAndV.setViewName("MACUpdateStatus");
 		return mAndV;
@@ -138,9 +141,12 @@ public class MacController {
 	}
 	
 	@RequestMapping("/MACupdateDateOfInterview.do")
-	public ModelAndView MACupdateDateOfInterview(@PathVariable("doi") Date dateOfInterview,@RequestParam("appId") int applicationId){
+	public ModelAndView MACupdateDateOfInterview(@RequestParam("doi") String doi,@RequestParam("appId") int applicationId){
 		ModelAndView mAndV = new ModelAndView();
 		try {
+			DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			LocalDate tape = LocalDate.parse(doi,format);
+			Date dateOfInterview = java.sql.Date.valueOf(tape);
 			service.updateApplicantDateOfInterview(applicationId, dateOfInterview);
 		} catch (UniversityException e) {
 			mAndV.addObject("error",e.getMessage());

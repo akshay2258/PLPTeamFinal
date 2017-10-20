@@ -21,7 +21,7 @@ public class ProgramOfferedBean {
 	
 	@Id
 	@Column(name="PROGRAM_NAME")
-	@Size(min=5,max=10,message="Min 5 and Max 10 characters")
+	@Size(min=3,max=10,message="Min 3 and Max 10 characters")
 	private String programName;
 	
 	@Column(name="DESCRIPTION")

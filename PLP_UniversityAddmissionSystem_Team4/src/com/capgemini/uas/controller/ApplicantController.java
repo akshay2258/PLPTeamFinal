@@ -1,5 +1,6 @@
 package com.capgemini.uas.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.capgemini.uas.dto.ApplicationBean;
 import com.capgemini.uas.dto.ProgramScheduledBean;
 import com.capgemini.uas.exception.UniversityException;
+import com.capgemini.uas.service.ApplicantServiceImpl;
 import com.capgemini.uas.service.IApplicantService;
 
 @Controller
@@ -86,13 +88,20 @@ public class ApplicantController {
 						{
 							try {
 								List<String> emailList = service.getEmailId();
+								LocalDate doi = new java.sql.Date(applicant.getDateOfBirth().getTime()).toLocalDate();
+								if(emailList.contains(applicant.getEmailId()) || !ApplicantServiceImpl.isAgeEligilble(doi)){
 								if(emailList.contains(applicant.getEmailId())) {
-									mAndV.addObject("applyFlag","Error in applying");
-									mAndV.addObject("appId", applicationId);
 									mAndV.addObject("emailError","Email Id already exist!");
-									mAndV.addObject("Applicant",applicant);
-									mAndV.setViewName("test3");
-									return mAndV;
+								}
+								
+								if(!ApplicantServiceImpl.isAgeEligilble(doi)){
+									mAndV.addObject("ageError","Age should be between 17 and 25");
+								}
+								mAndV.addObject("applyFlag","Error in applying");
+								mAndV.addObject("appId", applicationId);
+								mAndV.addObject("Applicant",applicant);
+								mAndV.setViewName("test3");
+								return mAndV;
 								}
 								applicationId = service.addDetail(applicant);
 							} catch (UniversityException e) {

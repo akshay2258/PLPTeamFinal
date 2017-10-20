@@ -33,7 +33,6 @@ public class ApplicationBean {
 	@Column(name="APPLICATION_ID")
 	@SequenceGenerator(name="appSeq",sequenceName="application_id_seq",allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="appSeq")
-//	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int applicationId;
 	
 	@Column(name="FULL_NAME")

@@ -29,6 +29,7 @@
 	   </style>
 	<!-- js -->
 	<script type="text/javascript" src="js/classie.js"></script>
+	<script type="text/javascript" src="js/checkAge.js"></script>
 	<script>
 	    function init() {
 	        window.addEventListener('scroll', function(e){
@@ -56,12 +57,12 @@
 	<header>
 	    <div class="container clearfix">
 	        <h1 id="logo">
-	            Shukla Group of Institutions
+	            Capgemini University
 	        </h1>
 	         
 	        <nav>
 	            <a href = "getHomePage.do" >Home</a>
-	            <a href = "#">About SGI</a>
+	            <a href = "#">About Us</a>
 	            <a href = "#">Contact Us</a>
 	            <a href = "getLoginHomePage.do">Log In</a>
 	        </nav>
@@ -156,7 +157,7 @@
 		</c:if>
 		</c:if>
 		<c:if test="${applyFlag ne null}">
-		<h1 align="center" style="color: aqua;">Addmission Form</h1><br>
+		<h1 align="center" style="color: aqua;">Admission Form</h1><br>
 		<c:if test="${appId ne 0}">
 				<h3 align="center" style="color:green;background-color: white;">You are successfully registered. Your Application Id is ${appId}</h3>
 				</c:if>
@@ -168,7 +169,7 @@
 					<h3 align="center" style="color:red;">${ageError}</h3><br>
 				</c:if>
 				<c:if test="${appId eq 0}">
-				<sf:form modelAttribute="applicant" action="applicantRegister.do" method="post" >
+				<sf:form name="form1" modelAttribute="applicant" action="applicantRegister.do" method="post" >
 					<table align="center" border="1" width="700">
 					
 					<tr>

@@ -44,12 +44,12 @@
 	<header>
 	    <div class="container clearfix">
 	        <h1 id="logo">
-	            Shukla Group of Institutions
+	            Capgemini University
 	        </h1>
 	         
 	        <nav>
 	            <a href = "MACHomePage.do">Home</a>
-	            <a href = "#">About SGI</a>
+	            <a href = "#">About Us</a>
 	            <a href = "#">Contact Us</a>
 <!-- 	            <a href = "getHomePage.do" onclick="noBack()">Log Out</a> -->
 				<a href = "getHomePage.do" onclick="noBack()">Log Out</a>
@@ -82,7 +82,7 @@
 		<div class="box">
 		Application Id : <input type="text" name="appId" value="${appId}" readonly="readonly">
 		Enter Date of Interview For Accepted Applicants:<br>
-		<input  type="text" name="doi" required>
+		<input  type="date" name="doi" min="${sysdate}" required>
 		<input type="submit" value="Update" class="btn">
 		</div>
 		</form>

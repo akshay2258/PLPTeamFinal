@@ -1,13 +1,13 @@
 DROP TABLE program_offered;
 create table program_offered(
-Program_Name varchar2(5) Constraint program_offered_pk primary key, 
+Program_Name varchar2(10) Constraint program_offered_pk primary key, 
 description varchar2(20), 
 applicant_eligibility varchar2(40) , 
 duration number, 
 degree_certificate_offered varchar2(10)
 );
 
-
+alter Table program_offered modify(program_name varchar2(10));
 insert into PROGRAM_OFFERED values('Btech','Engineering','Above 80% in SSC',4,'UG Certi');
 insert into PROGRAM_OFFERED values('Mtech','Engineering','Above 80% in Btech',2,'PG Certi');
 insert into PROGRAM_OFFERED values('BBA','Management','SSC Passed with above 80% in PCM',3,'UG Certi');

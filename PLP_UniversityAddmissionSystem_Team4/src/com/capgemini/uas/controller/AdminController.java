@@ -94,6 +94,7 @@ public class AdminController {
 					e.printStackTrace();
 				}
 				mAndV.addObject("poffered",pbean);
+				mAndV.addObject("offer_key",1);
 				mAndV.setViewName("Admin_Home");
 				}
 		return mAndV;
@@ -370,13 +371,26 @@ public class AdminController {
 			
 				
 			@RequestMapping(value="/FinalUpdateScheduledProgram.do",method=RequestMethod.POST)
-			public ModelAndView FinalUpdateScheduledProgram(@ModelAttribute("schedule") ProgramScheduledBean schedule,BindingResult result) throws UniversityException {		
+			public ModelAndView FinalUpdateScheduledProgram(@ModelAttribute("schedule") @Valid ProgramScheduledBean schedule,BindingResult result) throws UniversityException {		
+				
 				ModelAndView mAndV = new ModelAndView();
-				System.out.println(schedule);
+				if(result.hasErrors())
+			
+				{
+					mAndV.addObject("updateform", true);
+					mAndV.addObject("key",1);
+					mAndV.setViewName("Admin_Home");
+					
+					
+				}
+				else
+					
+				{
 				service.updateScheduledProg(schedule.getScheduledProgramId(),schedule);
 				mAndV.addObject("updateform", true);
 				mAndV.addObject("msg", true);
-				mAndV.setViewName("Admin_Home");
+				mAndV.setViewName("Admin_Home");}
+				
 				return mAndV;					
 			}		
 				

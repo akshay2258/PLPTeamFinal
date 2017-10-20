@@ -45,12 +45,12 @@
 	<header>
 	    <div class="container clearfix">
 	        <h1 id="logo">
-	            Shukla Group of Institutions
+	            Capgemini University
 	        </h1>
 	         
 	        <nav>
 	            <a href = "MACHomePage.do">Home</a>
-	            <a href = "#">About SGI</a>
+	            <a href = "#">About Us</a>
 	            <a href = "#">Contact Us</a>
 <!-- 	            <a href = "getHomePage.do" onclick="noBack()">Log Out</a> -->
 				<a href = "getHomePage.do" onclick="noBack()">Log Out</a>

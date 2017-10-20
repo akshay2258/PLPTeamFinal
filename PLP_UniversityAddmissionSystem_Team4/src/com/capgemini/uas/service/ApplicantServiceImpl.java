@@ -3,6 +3,7 @@ package com.capgemini.uas.service;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -49,7 +50,6 @@ public class ApplicantServiceImpl implements IApplicantService {
 			return true;
 			
 		}else
-			//System.out.println("Returning False");
 			return false;
 	}
 	public static boolean validateDateOfBirth(String dateOfBirth){

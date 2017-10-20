@@ -21,7 +21,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 	   <style type="text/css">
 	   	body{
-	   		background-image:url("images/applicant.jpg");
+	   		background-image:url("images/bgImage.jpg");
 	   	}
 	   </style>
 	<!-- js -->
@@ -144,12 +144,12 @@
 	<header>
 	    <div class="container clearfix">
 	        <h1 id="logo">
-	            Shukla Group of Institutions  
+	            Capgemini University  
 	        </h1>
 	         
 	        <nav>
 	            <a href = "getHomePage.do" >Home</a>
-	            <a href = "#">About SGI</a>
+	            <a href = "#">About Us</a>
 	            <a href = "#">Contact Us</a>
 	            <a href = "getHomePage.do">Log Out</a>
 	        </nav>
@@ -225,7 +225,7 @@
 					<h2 id="tablehead">Scheduled Program Deleted.Please see the Updated List</h2>
 				</c:if>
 			
-				<h2 align="center" style="color: aqua;">Scheduled Programs</h2>
+				<h2 align="center" >Scheduled Programs</h2>
 			
 				<table border="1" id="scheduleList" align="center">
 						<tr>
@@ -371,7 +371,7 @@
 			  		<tr>
 			  			<td> Enter Program ID :</td>
 			  			<td>
-						   	<sf:input path="scheduledProgramId"  type="text" required="true"/><a title="Program Schedule Id should be unique"><img src="images/comment.png" /></a><br/>
+						   	<sf:input path="scheduledProgramId"  type="text"/><a title="Program Schedule Id should be unique"><img src="images/comment.png" /></a><br/>
 						   	<sf:errors path="scheduledProgramId"  type="text" name="error" class="error"></sf:errors>
 						</td>
 					</tr>
@@ -386,7 +386,7 @@
 					<tr>
 						<td>Enter Location :</td>
 						<td>
-							<sf:input path="location" type="text" required="true"/><a title="Location where it is to be scheduled"><img src="images/comment.png" /></a><br/>
+							<sf:input path="location" type="text"/><a title="Location where it is to be scheduled"><img src="images/comment.png" /></a><br/>
 							<sf:errors path="location"  type="text" name="error" class="error"></sf:errors>
 						</td>
 					</tr>
@@ -394,20 +394,20 @@
 			    	<tr>
 				    	<td>Enter Start Date :</td>
 				    	<td> 
-							<sf:input path="startDate" type="text" required="true" name="startdate"/><a title="Date in the prescribed Format"><img src="images/comment.png" /></a><br/>
+							<sf:input path="startDate" type="text" name="startdate"/><a title="Date in the prescribed Format"><img src="images/comment.png" /></a><br/>
 							<sf:errors path="startDate" type="text" name="error" class="error"></sf:errors>
 						</td>
 					</tr>
 				
 				 	<tr>
 				 		<td>Enter End Date : </td><td>
-							<sf:input path="endDate" type="text" required="true" name="enddate"/><a title="Date in the prescribed Format"><img src="images/comment.png" /></a><br/>
+							<sf:input path="endDate" type="text" name="enddate"/><a title="Date in the prescribed Format"><img src="images/comment.png" /></a><br/>
 							<sf:errors path="endDate" type="text" class="error"></sf:errors>
 						</td>
 					</tr>
 				
 				<tr><td>Enter No. Of Sessions per week: </td><td>
-				<sf:input path="sessionPerWeek" type="text" required="true" pattern="[1-9]*"/><a title="In Integer"><img src="images/comment.png" /></a><br/>
+				<sf:input path="sessionPerWeek" type="text"/><a title="In Integer"><img src="images/comment.png" /></a><br/>
 				<sf:errors path="sessionPerWeek" type="text" name="error" class="error"></sf:errors></td></tr>
 				
 				<input type="hidden" name="prog" value="${prog}">
@@ -490,27 +490,27 @@
 				<sf:form action="FinalUpdateScheduledProgram.do" modelAttribute="schedule" method="post">
 			  <tr><td> Program ID :</td><td>
 			   	<sf:input path="scheduledProgramId"  type="text" value="${schedule.scheduledProgramId}" readonly="true" /><a title="Program Id"><img src="images/comment.png" /></a>
-			   	<sf:errors path="scheduledProgramId" name="error" class="error"></sf:errors></td></tr>
+			   	<%-- <sf:errors path="scheduledProgramId" name="error" class="error"></sf:errors> --%></td></tr>
 				
 				<tr><td>Program Name :</td><td>
 				<sf:input path="programName" type="text" value="${schedule.programName}" readonly="true"/><a title="Program Name to be updated"><img src="images/comment.png" /></a>
-				<sf:errors path="programName" name="error" class="error"></sf:errors></td></tr>
+				<%-- <sf:errors path="programName" name="error" class="error"></sf:errors> --%></td></tr>
 				
 				<tr><td>Update Location :</td><td>
 				<sf:input path="location" type="text" value="${scheduledPrg.location}" /><a title="Location to be Entered"><img src="images/comment.png" /></a>
-				<sf:errors path="location" name="error" class="error"></sf:errors></td></tr>
+				<br/><sf:errors path="location" name="error" class="error"></sf:errors></td></tr>
 				
 			    <tr><td>Update Start Date :</td><td> 
 				<sf:input path="startDate" type="text" value="${scheduledPrg.startDate}"/><a title="Date in the prescribed Format"><img src="images/comment.png" /></a>
-				<sf:errors path="startDate" type="text" name="error" class="error"></sf:errors></td></tr>
+				<br/><sf:errors path="startDate" type="text" name="error" class="error"></sf:errors></td></tr>
 				
 				 <tr><td>Update End Date : </td><td>
 				<sf:input path="endDate" type="text" value="${scheduledPrg.endDate}"/><a title="Date in the prescribed Format"><img src="images/comment.png" /></a>
-				<sf:errors path="endDate" type="text" name="error" class="error"></sf:errors></td></tr>
+				<br/><sf:errors path="endDate" type="text" name="error" class="error"></sf:errors></td></tr>
 				
 				<tr><td>Update No. Of Sessions per week: </td><td>
 				<sf:input path="sessionPerWeek" type="text" value="${scheduledPrg.sessionPerWeek}"/><a title="In Integer"><img src="images/comment.png" /></a>
-				<sf:errors path="sessionPerWeek" type="text" name="error" class="error"></sf:errors></td></tr>
+				<br/><sf:errors path="sessionPerWeek" type="text" name="error" class="error"></sf:errors></td></tr>
 				
 				<%-- <input type="hidden" name="prog" value="${prog}"> --%>
 				<tr><td><input type="reset" value="Reset"/></td>
@@ -521,6 +521,8 @@
 				</c:if>
 			<c:if test="${msg eq true}"><h2 id="tablehead">Scheduled Programm has been Updated</h2></c:if>
 			</c:if>	
+			
+			<c:if test="${offer_key eq 1}"><h2 align="center"><b>Program has been successfully added</b></h2></c:if>
 		</div>
 	</body>
 </html>

@@ -8,11 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -21,11 +25,13 @@ public class ProgramScheduledBean {
 	
 	@Id
 	@Column(name="SCHEDULED_PROGRAM_ID")
-	@Size(min=3,max=5,message="Min 3 & Max 5 character Alpha Numeric")
+	@Size(min=2,max=5,message="Min 2 & Max 5 character Alpha Numeric")
+	@NotEmpty(message="Please Fill out this field")
 	private String scheduledProgramId;
 	
 	@Column(name="PROGRAM_NAME")
-	@Size(min=5,max=10,message="Min 5 and Max 10 characters")
+	@Size(min=3,max=10,message="Min 3 and Max 10 characters")
+	@NotEmpty(message="Please Fill out this field")
 	private String programName;
 	
 	@Column(name="LOCATION")
@@ -36,15 +42,20 @@ public class ProgramScheduledBean {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd-MMM-yyyy")
 	@Column(name="START_DATE")
+	@Future(message="Should be after current date")
+	@NotNull(message="Please Fill out this field")
 	private Date startDate;
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd-MMM-yyyy")
 	@Column(name="END_DATE")
+	@Future(message="Should be after current date")
+	@NotNull(message="Please Fill out this field")
 	private Date endDate;
 	
 	@Column(name="SESSIONS_PER_WEEK")
-	@Min(1) @Max(50)
+	@Range(max=8,min=1,message="must be in the range of 1 to 8")
+	@NotNull(message="Please Fill out this field")
 	private int sessionPerWeek;
 	
 	public ProgramScheduledBean() {

@@ -45,6 +45,5 @@
   
 </form>
 
-<p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
 </body>
 </html>
